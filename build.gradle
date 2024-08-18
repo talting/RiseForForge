@@ -23,7 +23,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'java'
 
-group = "keystrokesmod"
+group = "rise"
 archivesBaseName = "raven-XD"
 //version = "1.26-dev"
 
@@ -39,14 +39,14 @@ minecraft {
 
     mappings = "stable_20"
     makeObfSourceJar = false
-    clientJvmArgs += '-Dfml.coreMods.load=keystrokesmod.mixins.MixinLoader'
+    clientJvmArgs += '-Dfml.coreMods.load=com.alan.clients.mixins.MixinLoader'
 }
 
 mixin {
     defaultObfuscationEnv searge
     sourceSets {
         main {
-            ext.refMap = 'mixins.raven.refmap.json'
+            ext.refMap = 'mixins.rice.refmap.json'
         }
     }
 }
@@ -65,7 +65,7 @@ configurations {
 
 dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
-    embed('org.spongepowered:mixin:0.6-SNAPSHOT') {
+    embed('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
         exclude module: 'gson'
         exclude module: 'guava'
         exclude module: 'jarjar'
@@ -112,10 +112,10 @@ jar {
     }
     manifest {
         attributes(
-                'MixinConfigs': 'mixins.raven.json',
+                'MixinConfigs': 'mixins.rice.json',
                 'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
                 'TweakOrder': 0,
-                "FMLCorePlugin": "keystrokesmod.mixins.MixinLoader",
+                "FMLCorePlugin": "com.alan.clients.mixins.MixinLoader",
                 "ForceLoadAsMod": true,
                 'FMLCorePluginContainsFMLMod': true,
                 "ModSide": "CLIENT"

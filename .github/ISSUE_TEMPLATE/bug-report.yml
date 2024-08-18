@@ -35,9 +35,9 @@ body:
   validations:
     required: true
 - type: input
-  id: raven-version
+  id: rice-version
   attributes:
-    label: Raven XD version
+    label: Rise version
     placeholder: e.g. 1.14
   validations:
     required: true
