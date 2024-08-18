@@ -63,9 +63,9 @@ public class RotationUtils {
 
     public static boolean notInRange(final BlockPos blockPos, final double n) {
         AxisAlignedBB box = BlockUtils.getCollisionBoundingBox(blockPos);
-        keystrokesmod.script.classes.Vec3 eyePos = Utils.getEyePos();
+        com.alan.clients.script.classes.Vec3 eyePos = Utils.getEyePos();
         if (box == null) {
-            return eyePos.distanceTo(keystrokesmod.script.classes.Vec3.convert(blockPos)) > n;
+            return eyePos.distanceTo(com.alan.clients.script.classes.Vec3.convert(blockPos)) > n;
         } else {
             return eyePos.distanceTo(getNearestPoint(box, eyePos)) > n;
         }
@@ -179,7 +179,7 @@ public class RotationUtils {
         for (double x : new double[]{targetBox.minX, targetBox.maxX}) {
             for (double y : new double[]{targetBox.minY, targetBox.maxY}) {
                 for (double z : new double[]{targetBox.minZ, targetBox.maxZ}) {
-                    final keystrokesmod.script.classes.Vec3 hitPos = new keystrokesmod.script.classes.Vec3(x, y, z);
+                    final com.alan.clients.script.classes.Vec3 hitPos = new com.alan.clients.script.classes.Vec3(x, y, z);
 
                     final float yaw1 = toPositive(PlayerRotation.getYaw(hitPos));
                     final float pitch1 = PlayerRotation.getPitch(hitPos);
@@ -211,7 +211,7 @@ public class RotationUtils {
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull keystrokesmod.script.classes.Vec3 getNearestPoint(@NotNull AxisAlignedBB from, @NotNull keystrokesmod.script.classes.Vec3 to) {
+    public static @NotNull com.alan.clients.script.classes.Vec3 getNearestPoint(@NotNull AxisAlignedBB from, @NotNull com.alan.clients.script.classes.Vec3 to) {
         double pointX, pointY, pointZ;
         if (to.x() >= from.maxX) {
             pointX = from.maxX;
@@ -223,10 +223,10 @@ public class RotationUtils {
             pointZ = from.maxZ;
         } else pointZ = Math.max(to.z(), from.minZ);
 
-        return new keystrokesmod.script.classes.Vec3(pointX, pointY, pointZ);
+        return new com.alan.clients.script.classes.Vec3(pointX, pointY, pointZ);
     }
 
-    public static EnumFacing getEnumFacing(keystrokesmod.script.classes.@NotNull Vec3 hitPos, @NotNull AxisAlignedBB box) {
+    public static EnumFacing getEnumFacing(com.alan.clients.script.classes.@NotNull Vec3 hitPos, @NotNull AxisAlignedBB box) {
         if (hitPos.y() == box.maxY) {
             return EnumFacing.UP;
         } else if (hitPos.y() == box.minY) {
@@ -244,7 +244,7 @@ public class RotationUtils {
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull keystrokesmod.script.classes.Vec3 getFarthestPoint(@NotNull AxisAlignedBB from, @NotNull keystrokesmod.script.classes.Vec3 to) {
+    public static @NotNull com.alan.clients.script.classes.Vec3 getFarthestPoint(@NotNull AxisAlignedBB from, @NotNull com.alan.clients.script.classes.Vec3 to) {
         double pointX, pointY, pointZ;
         if (to.x() < from.maxX) {
             pointX = from.maxX;
@@ -256,7 +256,7 @@ public class RotationUtils {
             pointZ = from.maxZ;
         } else pointZ = Math.min(to.z(), from.minZ);
 
-        return new keystrokesmod.script.classes.Vec3(pointX, pointY, pointZ);
+        return new com.alan.clients.script.classes.Vec3(pointX, pointY, pointZ);
     }
 
     public static float normalize(float yaw) {
@@ -341,11 +341,11 @@ public class RotationUtils {
 
     private static final Set<EnumFacing> FACINGS = new HashSet<>(Arrays.asList(EnumFacing.VALUES));
 
-    public static @NotNull Optional<Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3>> getPlaceSide(@NotNull BlockPos blockPos) {
+    public static @NotNull Optional<Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3>> getPlaceSide(@NotNull BlockPos blockPos) {
         return getPlaceSide(blockPos, FACINGS);
     }
 
-    public static @NotNull Optional<Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3>> getPlaceSide(@NotNull BlockPos blockPos, Set<EnumFacing> limitFacing) {
+    public static @NotNull Optional<Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3>> getPlaceSide(@NotNull BlockPos blockPos, Set<EnumFacing> limitFacing) {
         final List<BlockPos> possible = Arrays.asList(
                 blockPos.down(), blockPos.east(), blockPos.west(),
                 blockPos.north(), blockPos.south(), blockPos.up()
@@ -354,25 +354,25 @@ public class RotationUtils {
         for (BlockPos pos : possible) {
             if (!BlockUtils.replaceable(pos)) {
                 EnumFacing facing;
-                keystrokesmod.script.classes.Vec3 hitPos;
+                com.alan.clients.script.classes.Vec3 hitPos;
                 if (pos.getY() < blockPos.getY()) {
                     facing = EnumFacing.UP;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
                 } else if (pos.getX() > blockPos.getX()) {
                     facing = EnumFacing.WEST;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX(), pos.getY() + 0.5, pos.getZ() + 0.5);
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX(), pos.getY() + 0.5, pos.getZ() + 0.5);
                 } else if (pos.getX() < blockPos.getX()) {
                     facing = EnumFacing.EAST;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX() + 1, pos.getY() + 0.5, pos.getZ() + 0.5);
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX() + 1, pos.getY() + 0.5, pos.getZ() + 0.5);
                 } else if (pos.getZ() < blockPos.getZ()) {
                     facing = EnumFacing.SOUTH;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 1);
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 1);
                 } else if (pos.getZ() > blockPos.getZ()) {
                     facing = EnumFacing.NORTH;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ());
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ());
                 } else {
                     facing = EnumFacing.DOWN;
-                    hitPos = new keystrokesmod.script.classes.Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                    hitPos = new com.alan.clients.script.classes.Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
                 }
 
                 if (!limitFacing.contains(facing)) continue;

@@ -971,28 +971,28 @@ public class Utils {
         return stringbuilder.toString();
     }
 
-    public static keystrokesmod.script.classes.Vec3 getEyePos(@NotNull Entity entity, keystrokesmod.script.classes.@NotNull Vec3 position) {
-        return position.add(new keystrokesmod.script.classes.Vec3(0, entity.getEyeHeight(), 0));
+    public static com.alan.clients.script.classes.Vec3 getEyePos(@NotNull Entity entity, com.alan.clients.script.classes.@NotNull Vec3 position) {
+        return position.add(new com.alan.clients.script.classes.Vec3(0, entity.getEyeHeight(), 0));
     }
 
-    public static keystrokesmod.script.classes.Vec3 getEyePos(Entity entity) {
-        return getEyePos(entity, new keystrokesmod.script.classes.Vec3(entity));
+    public static com.alan.clients.script.classes.Vec3 getEyePos(Entity entity) {
+        return getEyePos(entity, new com.alan.clients.script.classes.Vec3(entity));
     }
 
-    public static keystrokesmod.script.classes.Vec3 getEyePos() {
+    public static com.alan.clients.script.classes.Vec3 getEyePos() {
         return getEyePos(mc.thePlayer);
     }
 
     public static boolean isTargetNearby() {
         return mc.theWorld.playerEntities.stream()
                 .filter(target -> target != mc.thePlayer)
-                .anyMatch(target -> new keystrokesmod.script.classes.Vec3(target).distanceTo(mc.thePlayer) < 6);
+                .anyMatch(target -> new com.alan.clients.script.classes.Vec3(target).distanceTo(mc.thePlayer) < 6);
     }
 
     public static boolean isTargetNearby(double dist) {
         return mc.theWorld.playerEntities.stream()
                 .filter(target -> target != mc.thePlayer)
-                .anyMatch(target -> new keystrokesmod.script.classes.Vec3(target).distanceTo(mc.thePlayer) < dist);
+                .anyMatch(target -> new com.alan.clients.script.classes.Vec3(target).distanceTo(mc.thePlayer) < dist);
     }
 
     /**

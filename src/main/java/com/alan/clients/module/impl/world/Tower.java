@@ -22,7 +22,7 @@ public class Tower extends Module {
                 .add(new VanillaTower("Vanilla", this))
                 .add(new HypixelJumpSprintTower("HypixelJumpSprint", this))
                 .add(new HypixelFastTower("HypixelFast", this))
-                .add(new HypixelFastVerticalTower("HypixelFastVertical", this))
+                .add(new HypixelFastVerticalTower("Rise", this))
                 .add(new BlocksMCTower("BlocksMC", this))
                 .add(new ConstantMotionTower("ConstantMotion", this))
                 .add(new VulcanTower("Vulcan", this))

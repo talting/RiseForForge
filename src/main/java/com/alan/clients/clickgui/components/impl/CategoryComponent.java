@@ -86,7 +86,7 @@ public class CategoryComponent {
         int tY = this.buttonHeight + 3;
 
         if ((this.categoryName == Module.category.profiles && isProfile) || (this.categoryName == Module.category.scripts && !isProfile)) {
-            ModuleComponent manager = new ModuleComponent(isProfile ? new Manager() : new keystrokesmod.script.Manager(), this, tY);
+            ModuleComponent manager = new ModuleComponent(isProfile ? new Manager() : new com.alan.clients.script.Manager(), this, tY);
             this.modules.add(manager);
 
             if ((Rise.profileManager == null && isProfile) || (Rise.scriptManager == null && !isProfile)) {

@@ -444,7 +444,7 @@ public class NoteBot extends Module {
 
                     // Copied from ServerPlayNetworkHandler#onPlayerInteractBlock
                     Vec3 vec3d2 = new Vec3(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
-                    double sqDist = Utils.getEyePos().distanceToSq(new keystrokesmod.script.classes.Vec3(vec3d2));
+                    double sqDist = Utils.getEyePos().distanceToSq(new com.alan.clients.script.classes.Vec3(vec3d2));
                     if (sqDist > MathHelper.sqrt_double(6.0)) continue;
 
                     if (!isValidScanSpot(pos)) continue;

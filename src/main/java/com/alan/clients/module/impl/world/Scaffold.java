@@ -384,7 +384,7 @@ public class Scaffold extends IAutoClicker {
             for (BlockPos pos : possible) {
                 if (!BlockUtils.replaceable(pos)) continue;
 
-                Optional<Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3>> placeSide = RotationUtils.getPlaceSide(pos);
+                Optional<Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3>> placeSide = RotationUtils.getPlaceSide(pos);
                 if (!placeSide.isPresent()) continue;
 
                 place(new MovingObjectPosition(MovingObjectPosition.MovingObjectType.BLOCK,
@@ -508,7 +508,7 @@ public class Scaffold extends IAutoClicker {
                 searchPitch = new float[]{65, 25};
             } else if (i == 1) {
                 if (expand.isToggled() && !(tower.isToggled() && Utils.jumpDown()) && (!polar.isToggled() || polar$waitingForExpand)) {
-                    final keystrokesmod.script.classes.Vec3 eyePos = Utils.getEyePos();
+                    final com.alan.clients.script.classes.Vec3 eyePos = Utils.getEyePos();
                     final BlockPos groundPos = new BlockPos(mc.thePlayer).down();
                     long expDist = Math.round(expandDistance.getInput());
                     for (int j = 0; j < expDist; j++) {
@@ -521,10 +521,10 @@ public class Scaffold extends IAutoClicker {
                         if (!BlockUtils.replaceable(targetPos))
                             continue;
 
-                        Optional<Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3>> optional = RotationUtils.getPlaceSide(targetPos);
+                        Optional<Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3>> optional = RotationUtils.getPlaceSide(targetPos);
                         if (!optional.isPresent()) continue;
 
-                        Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3> placeSide = optional.get();
+                        Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3> placeSide = optional.get();
 
                         if (placeSide.getRight().distanceTo(eyePos) > expandDistance.getInput()) break;
 
@@ -558,7 +558,7 @@ public class Scaffold extends IAutoClicker {
                                             forceStrict = (forceStrict(checkYaw)) && i == 1;
                                             rayCasted = raycast;
                                             if (recycleRotation.isToggled()) {
-                                                Optional<Triple<BlockPos, EnumFacing, keystrokesmod.script.classes.Vec3>> placeSide = RotationUtils.getPlaceSide(targetPos);
+                                                Optional<Triple<BlockPos, EnumFacing, com.alan.clients.script.classes.Vec3>> placeSide = RotationUtils.getPlaceSide(targetPos);
                                                 if (placeSide.isPresent()) {
                                                     rayCasted = new MovingObjectPosition(placeSide.get().getRight().toVec3(), placeSide.get().getMiddle(), placeSide.get().getLeft());
                                                     placeYaw = PlayerRotation.getYaw(placeSide.get().getRight());
