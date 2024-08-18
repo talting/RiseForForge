@@ -42,8 +42,8 @@ Rise, but for those who can't afford it.
 4. **Clone the Repository**:
    - Run the following commands in the terminal or command prompt:
      ```bash
-     git clone --recursive https://github.com/夏翊淳/Raven-XD.git
-     cd Raven-XD
+     git clone --recursive https://github.com/talting/RiseForForge.git
+     cd RiseForForge
      ```
 
 5. **Set Up the Project**:

@@ -24,7 +24,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'java'
 
 group = "rise"
-archivesBaseName = "raven-XD"
+archivesBaseName = "Rise-Forge"
 //version = "1.26-dev"
 
 compileJava {

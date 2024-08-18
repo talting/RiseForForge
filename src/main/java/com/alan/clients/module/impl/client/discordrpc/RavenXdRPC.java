@@ -20,8 +20,8 @@ public class RavenXdRPC extends SubMode<DiscordRpc> {
         if (!started) {
             DiscordRPC.discordInitialize(clientId, new DiscordEventHandlers.Builder().setReadyEventHandler(user -> {
                 DiscordRichPresence.Builder presence = new DiscordRichPresence.Builder("");
-                presence.setDetails("Cheating using RavenXD");
-                presence.setBigImage("logo", "https://github.com/夏翊淳/Raven-XD").setStartTimestamps(System.currentTimeMillis());
+                presence.setDetails("Cheating using Rise");
+                presence.setBigImage("logo", "https://github.com/talting/RiseForForge").setStartTimestamps(System.currentTimeMillis());
                 DiscordRPC.discordUpdatePresence(presence.build());
             }).build(), true);
             new Thread(() -> {
