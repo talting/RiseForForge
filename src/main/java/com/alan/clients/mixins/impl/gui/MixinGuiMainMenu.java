@@ -83,7 +83,7 @@ public abstract class MixinGuiMainMenu extends GuiScreen {
         } else if (month == 1 && day == 1) {
             this.splashText = "Happy new year!";
         } else if (month == 6 && day == 5) {
-            this.splashText = "RavenXD was born today!";
+            this.splashText = "Rise was born today!";
         }
 
         int j = this.height / 4 + 48;
