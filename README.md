@@ -14,9 +14,7 @@
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/QNVaUzHT?label=Modrinth%20Downloads&logo=Modrinth%20Downloads&style=flat-square)](https://modrinth.com/mod/cheatdetector)
 -->
 
-Raven B4, but for those who can't afford it.
-
-Raven B4, but not only for Hypixel.
+Rise, but for those who can't afford it.
 
 <a href="https://discord.gg/zSgDKArSH4"><img src="https://invidget.switchblade.xyz/zSgDKArSH4" alt="https://discord.gg/zSgDKArSH4"/></a><br>
 
