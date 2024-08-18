@@ -1,6 +1,6 @@
 <div align="center">
   
-# Raven XD
+# Rise
 <p align="center">
     <a href="https://github.com/xia-mc/Raven-bS/issues">
       <img src="https://img.shields.io/github/issues/xia-mc/Raven-bS?style=flat" alt="issues" />
